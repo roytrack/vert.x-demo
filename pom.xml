@@ -5,6 +5,9 @@
     <artifactId>parent</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <module>learn</module>
+    </modules>
 
     <name>vertx</name>
     <description>note for some learning tips</description>
