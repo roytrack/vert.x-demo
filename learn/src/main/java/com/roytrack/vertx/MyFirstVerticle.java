@@ -15,5 +15,8 @@ public class MyFirstVerticle extends AbstractVerticle {
                     .end("Hello world!");
 
         }).listen(8080);
+        vertx.setPeriodic(1000,id->{
+            System.out.println("this periodic fired with i value "+id);
+        });
     }
 }
