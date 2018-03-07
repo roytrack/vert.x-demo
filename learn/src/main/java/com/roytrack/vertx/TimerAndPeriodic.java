@@ -12,15 +12,17 @@ public class TimerAndPeriodic extends AbstractVerticle {
         Long timerId=vertx.setTimer(2000,id -> System.out.println("Two second later this is printed"));
         System.out.println("this line print first, the timerID is "+timerId);
 
-        Long periodicId=vertx.setPeriodic(2000, id -> {
-            System.out.println("This line printed every two second and i is"+i);
+       Long periodicId=vertx.setPeriodic(2000, id -> {
+            System.out.println("This line printed every two second and i is"+i +"  and the id is "+id);
             i++;
+            if(i>5){
+                vertx.cancelTimer(id);
+                System.out.println("Try to cancel timer,let's see if it works");
+            }
         });
 
-        if(i>5){
-            vertx.cancelTimer(periodicId);
-            System.out.println("Try to cancel timer,let's see if it works");
-        }
+        //not work
+
 
         System.out.println("thie line after periodic but show before it ,periodicId is "+periodicId);
 
