@@ -1,4 +1,4 @@
-package com.roytrack.vertx;
+package com.roytrack.vertx.core;
 
 import io.vertx.core.AbstractVerticle;
 

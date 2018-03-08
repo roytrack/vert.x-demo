@@ -1,4 +1,4 @@
-package com.roytrack.vertx;
+package com.roytrack.vertx.core;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
@@ -12,7 +12,7 @@ import java.util.Random;
 public class AsyncVerticleTest extends AbstractVerticle {
 
     public void start(Future<Void> startFuture){
-        vertx.deployVerticle("com.roytrack.vertx.MyFirstVerticle",res ->{
+        vertx.deployVerticle("MyFirstVerticle",res ->{
             if(res.succeeded()){
                 startFuture.complete();
             }else{
