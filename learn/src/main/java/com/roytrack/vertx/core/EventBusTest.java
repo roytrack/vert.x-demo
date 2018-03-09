@@ -2,6 +2,8 @@ package com.roytrack.vertx.core;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.MultiMap;
+import io.vertx.core.Vertx;
+import io.vertx.core.VertxOptions;
 import io.vertx.core.eventbus.DeliveryOptions;
 import io.vertx.core.eventbus.EventBus;
 import io.vertx.core.eventbus.MessageConsumer;
@@ -53,6 +55,17 @@ public class EventBusTest extends AbstractVerticle {
 //                System.out.println("Un-registration failed!");
 //            }
 //        });
+
+        VertxOptions vertxOptions=new VertxOptions();
+        Vertx.clusteredVertx(vertxOptions,res ->{
+            if(res.succeeded()){
+                Vertx vertx=res.result();
+                EventBus eventBus1=vertx.eventBus();
+                System.out.println("We now have a clustered event bus "+eventBus1);
+            }else {
+                System.out.println("Failed : "+res.cause());
+            }
+        });
 
 
     }
