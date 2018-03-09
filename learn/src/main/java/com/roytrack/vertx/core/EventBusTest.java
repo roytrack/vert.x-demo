@@ -56,16 +56,7 @@ public class EventBusTest extends AbstractVerticle {
 //            }
 //        });
 
-        VertxOptions vertxOptions=new VertxOptions();
-        Vertx.clusteredVertx(vertxOptions,res ->{
-            if(res.succeeded()){
-                Vertx vertx=res.result();
-                EventBus eventBus1=vertx.eventBus();
-                System.out.println("We now have a clustered event bus "+eventBus1);
-            }else {
-                System.out.println("Failed : "+res.cause());
-            }
-        });
+
 
 
     }
