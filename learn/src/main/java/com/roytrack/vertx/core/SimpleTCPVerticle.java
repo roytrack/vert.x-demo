@@ -26,7 +26,7 @@ public class SimpleTCPVerticle extends AbstractVerticle {
                         System.out.println("Error occured : " + throwable.getMessage());
                     });
         })
-                .listen(0, "localhost", netServerAsyncResult -> {
+                .listen(1234, "localhost", netServerAsyncResult -> {
                     if (netServerAsyncResult.succeeded()) {
                         System.out.println("Server is now listening!");
                         System.out.println("listening port is " + server.actualPort());
