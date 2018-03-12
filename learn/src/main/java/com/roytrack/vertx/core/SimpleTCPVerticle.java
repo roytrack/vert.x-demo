@@ -2,13 +2,16 @@ package com.roytrack.vertx.core;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.net.NetServer;
+import io.vertx.core.net.NetServerOptions;
 
 /**
  * Created by roytrack on 2018/3/10 10:13.
  */
 public class SimpleTCPVerticle extends AbstractVerticle {
     public void start(){
-        NetServer server=vertx.createNetServer();
+        NetServerOptions options=new NetServerOptions();
+        options.setLogActivity(true);
+        NetServer server=vertx.createNetServer(options);
         server.connectHandler(netSocket -> {
             netSocket.handler(buffer -> {
                 String tmp=buffer.toString();
